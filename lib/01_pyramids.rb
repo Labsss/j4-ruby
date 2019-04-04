@@ -53,8 +53,6 @@ def full_pyramid
     end
     
     base = number * 2 - 1 # nb d'élément du carré encapsulant la pyramide
-    line = "" # initilisation d'une ligne
-    blanc_cote = "" # blanc à ajouter
     pyramid = [] # init le tableau
     
     # développe la pyramide
@@ -67,17 +65,17 @@ def full_pyramid
         line = blanc_cote + line + blanc_cote   # je concatène les chaines pour chaque ligne
         pyramid << line # j'ajoute dans mon tableau de pyramide
     end
-    
+    return pyramid
+
+end
+
+def wtf_pyramid(losange)
     puts "Voici la pyramide :"
 
-    puts pyramid.reverse
+    puts losange.reverse # j'affiche le haut de la pyramide
+    losange.delete_at(0)  # je supprime le 1er étage (ici la base)
+    puts losange    #j'affiche le bas de la pyramide avec un etage en moins
+
 end
 
-def wtf_pyramid
-    full_pyramid()
-    
-end
-
-#half_pyramid()
-full_pyramid()
-wtf_pyramid()
+wtf_pyramid(full_pyramid)
