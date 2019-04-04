@@ -32,9 +32,4 @@ end
 
 perform
 
-=begin while login() != mot2passe
-    puts "Erreur de mot de passe. Recommence biatch"
-end 
-=end
-
 
