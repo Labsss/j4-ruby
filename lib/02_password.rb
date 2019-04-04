@@ -6,24 +6,16 @@ def signup()
     return pw
 end
 
-=begin def login(password)
+def login(pw)
     puts "Saisir votre mot de passe:"
     print ">"
     id = gets.chomp
-    while id != password
+    while id!= pw
         puts "Erreur de mot de passe. Recommence biatch"
         puts "Saisir votre mot de passe:"
         print ">"
         id = gets.chomp
-    end
-end 
-=end
-
-def login2()
-    puts "Saisir votre mot de passe:"
-    print ">"
-    id = gets.chomp
-    return id
+    end 
 end
 
 def welcome_screen
@@ -32,9 +24,17 @@ def welcome_screen
     puts "***********"
 end
 
-mot2passe = signup()
-while login2() != mot2passe
-    puts "Erreur de mot de passe. Recommence biatch"
+def perform
+    mot2passe = signup()
+    login(mot2passe)
+    welcome_screen()
 end
-welcome_screen()
+
+perform
+
+=begin while login() != mot2passe
+    puts "Erreur de mot de passe. Recommence biatch"
+end 
+=end
+
 
