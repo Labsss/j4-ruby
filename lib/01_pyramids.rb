@@ -52,26 +52,32 @@ def full_pyramid
         number = gets.chomp.to_i 
     end
     
-    #level = "#"
-    #blanc = " "
     base = number * 2 - 1 # nb d'élément du carré encapsulant la pyramide
-    line = ""
+    line = "" # initilisation d'une ligne
+    blanc_cote = "" # blanc à ajouter
     pyramid = [] # init le tableau
-    #i=1 # init le compteur
     
     # développe la pyramide
-    #line = "#" * base
-    line = "#" * number * 2 - 1
-    for i in (1..number) do
-        pyramid << line
-        
+    line = "#" * base # calcule le nb de # de la base la plus large
+    pyramid << line # j'initialise la pyramide
+    for i in (1..number-1) do
+        base -= 2       # décrémente le nb de #
+        blanc_cote = " " * i  # calcule les blancs
+        line = "#" * base 
+        line = blanc_cote + line + blanc_cote   # je concatène les chaines pour chaque ligne
+        pyramid << line # j'ajoute dans mon tableau de pyramide
     end
     
-    puts line
-    
     puts "Voici la pyramide :"
-    puts pyramid
+
+    puts pyramid.reverse
 end
+
+def wtf_pyramid
+    full_pyramid()
     
+end
+
 #half_pyramid()
 full_pyramid()
+wtf_pyramid()
